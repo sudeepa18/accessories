@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accessories</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="category-title">Accessories Collection</h1>
+    <div>
+      <a href="#" class="text-decoration-none">
+        <i class="fas fa-shopping-cart fs-3 text-dark"></i>
+      </a>
+    </div>
+  </div>
+  <div class="row" id="product-container">
+  </div>
+</div>
+
+<script>
+  const products = [
+    { id: 1, name: "Elegant Pendant", description: "Graceful and versatile, suits every neckline.", image: "pendant.jpg", price: "₹299", rating: 4.5, reviews: 34 },
+    { id: 2, name: "Dainty Earrings", description: "Perfect touch of charm for any outfit.", image: "earrings.jpg", price: "₹199", rating: 4.2, reviews: 21 },
+    { id: 3, name: "Chic Bracelet", description: "Stylish and simple, made for everyday wear.", image: "bracelet.jpg", price: "₹249", rating: 4.3, reviews: 18 },
+    { id: 4, name: "Delicate Anklet", description: "Soft shimmer that complements every step.", image: "anklet.jpg", price: "₹179", rating: 4.0, reviews: 12 },
+    { id: 5, name: "Graceful Ring", description: "Elegant accessory to enhance your hands.", image: "ring.jpg", price: "₹159", rating: 4.4, reviews: 27 },
+    { id: 6, name: "Twinkle Hairband", description: "Soft and classy, completes your hair look.", image: "hairband.jpg", price: "₹99", rating: 4.1, reviews: 16 },
+    { id: 7, name: "Classic Brooch", description: "Timeless elegance for traditional styles.", image: "brooch.jpg", price: "₹139", rating: 4.3, reviews: 20 },
+    { id: 8, name: "Charming Waist Chain", description: "Glamorous addition to any festive look.", image: "waistchain.jpg", price: "₹349", rating: 4.6, reviews: 22 },
+    { id: 9, name: "Blossom Scrunchie", description: "Cute and fluffy, perfect for daily wear.", image: "scrunchie.jpg", price: "₹89", rating: 4.2, reviews: 14 },
+    { id: 10, name: "Pretty Hair Clip", description: "Chic and decorative clip for your tresses.", image: "hairclip.jpg", price: "₹109", rating: 4.0, reviews: 10 },
+    { id: 11, name: "Floral Clutch", description: "Compact and stylish with a floral finish.", image: "clutch.jpg", price: "₹99", rating: 4.5, reviews: 19 },
+    { id: 12, name: "Minimalist Keychain", description: "Cute charm to keep your keys stylish.", image: "keychain.jpg", price: "₹79", rating: 4.1, reviews: 8 },
+    { id: 13, name: "Vintage Hand Mirror", description: "Pretty mirror with a floral frame and vintage charm.", image: "handmirror.jpg", price: "₹499", rating: 4.4, reviews: 17 },
+    { id: 14, name: "Lovely Hair Tie", description: "Bright and cheerful hair companion.", image: "hairtie.jpg", price: "₹69", rating: 4.3, reviews: 9 },
+    { id: 15, name: "Elegant Nose Pin", description: "Tiny sparkle for a subtle statement.", image: "nosepin.jpg", price: "₹99", rating: 4.5, reviews: 11 },
+    { id: 16, name: "Sparkling Ear Cuff", description: "Trendy piece without the piercing.", image: "earcuff.jpg", price: "₹189", rating: 4.4, reviews: 13 }
+  ];
+
+  const container = document.getElementById("product-container");
+
+  products.forEach((product) => {
+    const col = document.createElement("div");
+    col.className = "col-lg-3 col-md-4 col-sm-6 mb-4";
+
+    col.innerHTML = `
+      <div class="card product-card h-100 text-center position-relative">
+        <div class="wishlist-icon" onclick="toggleWishlist(this)">
+          <i class="fa-regular fa-heart"></i>
+        </div>
+        <img src="images/${product.image}" class="card-img-top product-image" alt="${product.name}">
+        <div class="card-body">
+          <h5 class="card-title">${product.name}</h5>
+          <p class="product-price">${product.price}</p>
+          <p class="product-rating">
+            <span class="stars">
+              ${'★'.repeat(Math.floor(product.rating))}${product.rating % 1 >= 0.5 ? '½' : ''}
+            </span>
+            (${product.reviews} reviews)
+          </p>
+          <p class="delivery-text">Free Delivery</p>
+          <p class="card-text">${product.description}</p>
+          <a href="product.html?name=butterfly-necklace" class="btn-view">View Details</a>
+        </div>
+      </div>
+    `;
+
+    container.appendChild(col);
+  });
+
+  function toggleWishlist(icon) {
+    const heart = icon.querySelector("i");
+    heart.classList.toggle("fa-regular");
+    heart.classList.toggle("fa-solid");
+    heart.classList.toggle("text-danger");
+  }
+</script>
+
+</body>
+</html>

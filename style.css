@@ -1,0 +1,135 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff0f5;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 40px 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #7b002c;
+  margin-bottom: 30px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.product-card {
+  background-color: #ffffff;
+  border: 2px solid #ffb6c1;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  text-align: center;
+  width: 100%;
+  max-width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.product-details {
+  padding: 15px;
+}
+
+.product-name {
+  font-size: 18px;
+  color: #7b002c;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+.product-description {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.product-price {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 4px;
+}
+
+.product-rating {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.free-delivery {
+  font-size: 13px;
+  color: green;
+  margin-bottom: 10px;
+}
+
+.btn-view {
+  background-color: #7b002c; /* Wine red */
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  display: inline-block;
+  margin-top: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-view:hover {
+  background-color: #5a0020; /* Darker wine red on hover */
+}
+
+.wishlist-icon {
+  font-size: 20px;
+  color: #bbb;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.wishlist-icon.active {
+  color: #ff4d6d;
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-image {
+    height: 160px;
+  }
+
+  .product-name {
+    font-size: 16px;
+  }
+
+  .btn-view {
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+}
